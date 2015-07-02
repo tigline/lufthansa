@@ -31,7 +31,7 @@ public class InitActivity extends Activity {
 
 	private static final String SHAREDPREFERENCES_NAME = "first_pref";
 
-	/**
+	/** 
 	 * Handler:跳转到不同界面
 	 */
 	private Handler mHandler = new Handler() {
@@ -40,10 +40,10 @@ public class InitActivity extends Activity {
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
 			case GO_HOME:
-				goHome();
+				goGuide();
 				break;
 			case GO_GUIDE:
-				//goGuide();
+				goGuide();
 				break;
 			}
 			super.handleMessage(msg);
@@ -83,11 +83,11 @@ public class InitActivity extends Activity {
 		InitActivity.this.startActivity(intent);
 		InitActivity.this.finish();
 	}
-	/*
+	
 	private void goGuide() {
-		Intent intent = new Intent(InitActivity.this, GuideActivity.class);
+		Intent intent = new Intent(InitActivity.this, MainActivity.class);
 		InitActivity.this.startActivity(intent);
 		InitActivity.this.finish();
 	}
-	*/
+	
 }
