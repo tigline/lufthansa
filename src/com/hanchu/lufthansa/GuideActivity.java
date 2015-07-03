@@ -43,12 +43,14 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.guide);
-
+		
 		// 初始化页面
 		initViews();
 
 		// 初始化底部小点
 		initDots();
+		BackgroundMusic.getInstance(this).playBackgroundMusic("Butterfly Kiss.mp3", true);
+		
 	}
 
 	private void initViews() {
@@ -114,5 +116,13 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		// 设置底部小点选中状态
 		setCurrentDot(arg0);
 	}
+	
+	@Override
+	protected void onStop() {
+		super.onStop();
+		BackgroundMusic.getInstance(this).stopBackgroundMusic();
+	}
+	
+	
 
 }

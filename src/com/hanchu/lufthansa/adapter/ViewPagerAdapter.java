@@ -13,6 +13,8 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
+
+import com.hanchu.lufthansa.BackgroundMusic;
 import com.hanchu.lufthansa.MainActivity;
 import com.hanchu.lufthansa.R;
 
@@ -74,6 +76,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 				@Override
 				public void onClick(View v) {
 					// 设置已经引导
+					
 					setGuided();
 					goHome();
 
