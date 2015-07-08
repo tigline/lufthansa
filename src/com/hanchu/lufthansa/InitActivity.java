@@ -77,13 +77,13 @@ public class InitActivity extends Activity {
 		}
 
 	}
-
+	/*
 	private void goHome() {
 		Intent intent = new Intent(InitActivity.this, MainActivity.class);
 		InitActivity.this.startActivity(intent);
 		InitActivity.this.finish();
 	}
-	
+	*/
 	private void goGuide() {
 		Intent intent = new Intent(InitActivity.this, MainActivity.class);
 		InitActivity.this.startActivity(intent);

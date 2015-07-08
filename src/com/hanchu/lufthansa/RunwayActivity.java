@@ -1,61 +1,58 @@
+/**
+ * 
+ */
 package com.hanchu.lufthansa;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
+import com.hanchu.lufthansa.adapter.ViewPagerAdapter;
+import com.hanchu.lufthansa.scrollviewtext.AutoScrollTextView;
+import com.hanchu.lufthansa.typetextview.TypeTextView;
+import com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener;
+import com.hanchu.lufthansa.viewpager.ViewPager;
+
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.support.v4.app.FragmentActivity;
+//import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
+
 import android.widget.TextView;
-
-import com.hanchu.lufthansa.adapter.ViewPagerAdapter;
-import com.hanchu.lufthansa.scrollviewtext.AutoScrollTextView;
-import com.hanchu.lufthansa.typetextview.TypeTextView;
-import com.hanchu.lufthansa.R;
-
 /**
- * 
- * @{# GuideActivity.java Create on 2013-5-2 下午10:59:08
- * 
- *     class desc: 引导界面
- * 
- *     <p>
- *     Copyright: Copyright(c) 2013
- *     </p>
- * @Version 1.0
- * @Author <a href="mailto:gaolei_xj@163.com">Leo</a>
- * 
- * 
+ * @Project Lufthansa	
+ * @author houxb
+ * @Date 2015-7-8
  */
-public class GuideActivity extends Activity implements OnPageChangeListener {
-
+public class RunwayActivity extends FragmentActivity implements OnPageChangeListener{
+	
+	
 	private ViewPager vp;
 	private ViewPagerAdapter vpAdapter;
+
 	private List<View> views;
 	private AutoScrollTextView scrollText = null;
 	// 底部小点图片
-	private ImageView[] dots;
+	//private ImageView[] dots;
 
 	// 记录当前选中位置
-	private int currentIndex;
+	//private int currentIndex;
 	
 	private TextView[] tvs = new TextView[6];
     private Handler handler = new Handler();
     
 	private TypeTextView mTypeTextView = null;
 	private TypeTextView mTypeTextView1 = null;
-	private static final String DATA_1 = "时间2012年暑假，又是一个平常的日子，寡人照例批阅奏章（帖子）。这时一个头像吸引了我，以神界（飞行）特有的直觉，这十有八九是个同类。果不其然。就这么在浩瀚的人群中，发现了你。关键的是，这还是个妹子呀。";
-	private static final String DATA_2 = "后来对你了解越多，我发现所谓理想中的那个人就是这样的吧。不过回想自己的状况，我感觉这是一个遥不可及的距离，我配不上她。立刻把自己的这点念想彻底熄灭了。所以当做什么也没想过，我们时常还是相谈甚欢的。";
+	private TypeTextView mTypeTextView2 = null;
+	private TypeTextView mTypeTextView3 = null;
+	private TypeTextView mTypeTextView4 = null;
+	private TypeTextView mTypeTextView5 = null;
 	
-	private static final String DATA_5 = "这期间，因为我认为和你没有任何可能性，或者说连想法都不敢有。就这样我遇到过一些人，不过最后都也没在一起。 就当做往事烟云吧。";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -66,6 +63,7 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 
 		// 初始化底部小点
 		//initDots();
+		mTypeTextView.start(TextData.DATA_1);
 		BackgroundMusic.getInstance(this).playBackgroundMusic("Butterfly Kiss.mp3", true);
 		
 	}
@@ -82,12 +80,19 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		views.add(2,inflater.inflate(R.layout.guide_three, null));
 		mTypeTextView1 = (TypeTextView) views.get(2).findViewById(R.id.typeTx_2);
 		views.add(3,inflater.inflate(R.layout.guide_four, null));
-		views.add(4,inflater.inflate(R.layout.guide_six, null));
-		scrollText = (AutoScrollTextView) views.get(4).findViewById(R.id.scrolltext);
-		views.add(5,inflater.inflate(R.layout.guide_ten, null));
+		views.add(4,inflater.inflate(R.layout.guide_five, null));		
+		views.add(5,inflater.inflate(R.layout.guide_six, null));
+		scrollText = (AutoScrollTextView) views.get(5).findViewById(R.id.scrolltext);
+		views.add(6,inflater.inflate(R.layout.guide_seven, null));
+		mTypeTextView2 = (TypeTextView) views.get(6).findViewById(R.id.typeTx_7);
+		views.add(7,inflater.inflate(R.layout.guide_eight, null));
+		mTypeTextView3 = (TypeTextView) views.get(7).findViewById(R.id.typeTx_8);
+		views.add(8,inflater.inflate(R.layout.guide_nine, null));
+		mTypeTextView4 = (TypeTextView) views.get(8).findViewById(R.id.typeTx_9);
+		views.add(9,inflater.inflate(R.layout.guide_ten, null));
+		mTypeTextView5 = (TypeTextView) views.get(9).findViewById(R.id.typeTx_10);
 		//mTypeTextView = new TypeTextView(this);
-		
-		
+				
 		// 初始化Adapter
 		vpAdapter = new ViewPagerAdapter(views, this);
 		
@@ -118,9 +123,9 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		}
 		currentIndex = 0;
 		dots[currentIndex].setEnabled(false);// 设置为白色，即选中状态
-		mTypeTextView.start(DATA_1);		
+				
 	}
-	*/
+	
 	private void setCurrentDot(int position) {
 		if (position < 0 || position > views.size() - 1
 				|| currentIndex == position) {
@@ -142,30 +147,15 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 			mTypeTextView1.start(DATA_2);
 		case 4:
 			scrollText.initScrollTextView(this.getWindowManager(), 
-	                "欢迎使用远程点播"); 
+					DATA_5); 
 			scrollText.starScroll();
 			break;
 		default:
 			break;
 		}
 	}
+	*/
 
-	// 当滑动状态改变时调用
-	@Override
-	public void onPageScrollStateChanged(int arg0) {
-	}
-
-	// 当当前页面被滑动时调用
-	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-	}
-
-	// 当新的页面被选中时调用
-	@Override
-	public void onPageSelected(int arg0) {
-		// 设置底部小点选中状态
-		setCurrentDot(arg0);
-	}
 		
 	private void loadContent() {
 	        setInvisible();
@@ -189,8 +179,7 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 	
 	        @Override
 	        public void onAnimationEnd(Animation animation) {
-	            tv.setVisibility(View.VISIBLE);
-	
+	            tv.setVisibility(View.VISIBLE);	
 	        }
 	        @Override
 	        public void onAnimationRepeat(Animation animation) {
@@ -216,5 +205,61 @@ public class GuideActivity extends Activity implements OnPageChangeListener {
 		super.onStop();
 		BackgroundMusic.getInstance(this).stopBackgroundMusic();
 	}
+	/* (non-Javadoc)
+	 * @see com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener#onPageScrolled(int, float, int)
+	 */
+	@Override
+	public void onPageScrolled(int position, float positionOffset,
+			int positionOffsetPixels) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	/* (non-Javadoc)
+	 * @see com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener#onPageSelected(int)
+	 */
+	@Override
+	public void onPageSelected(int position) {
+		// TODO Auto-generated method stub
+		switch (position) {
+		case 0:
+			mTypeTextView.start(TextData.DATA_1);	
+			break;
+		case 1:
+			loadContent();
+			break;
+		case 2:
+			mTypeTextView1.start(TextData.DATA_2);
+		case 4:
+			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
+			scrollText.starScroll();
+			break;
+		case 6:
+			mTypeTextView2.start(TextData.DATA_7);
+			break;
+		case 7:
+			mTypeTextView3.start(TextData.DATA_8);
+			break;
+		case 8:
+			mTypeTextView4.start(TextData.DATA_9);
+			break;
+		case 9:
+			mTypeTextView5.start(TextData.DATA_10);
+			break;
+		default:
+			break;
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener#onPageScrollStateChanged(int)
+	 */
+	@Override
+	public void onPageScrollStateChanged(int state) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
 }

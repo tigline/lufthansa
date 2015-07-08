@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
-    <ImageView
+    
+	<ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
@@ -11,15 +11,16 @@
         android:background="@drawable/guide_3"
         android:focusable="true"
         android:scaleType="centerCrop" />
-	<com.hanchu.lufthansa.scrollviewtext.AutoScrollTextView
-	    android:id="@+id/scrolltext"
+	<TextView 
+	    android:id="@+id/text_4"
 	    android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentTop="true"
+	    android:layout_centerHorizontal="true"
+	    android:layout_marginTop="200dp"
+	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="190dp"
-	    android:textColor="#14b356"
-        android:textSize="18sp"/>
-
+        android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是没有成为曾经最熟悉的陌生人。"
+        android:textColor="#14b356"
+	    android:textSize="18sp" />
 </RelativeLayout>

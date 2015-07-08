@@ -11,15 +11,4 @@
         android:background="@drawable/guide_3"
         android:focusable="true"
         android:scaleType="centerCrop" />
-	<com.hanchu.lufthansa.scrollviewtext.AutoScrollTextView
-	    android:id="@+id/scrolltext"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentTop="true"
-	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="200dp"
-	    android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textColor="#14b356"
-	    android:textSize="18sp" />
 </RelativeLayout>

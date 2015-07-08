@@ -26,9 +26,9 @@
             </intent-filter>
         </activity>
         <activity android:name="com.hanchu.lufthansa.MainActivity"></activity>
-        <activity android:name="com.hanchu.lufthansa.GuideActivity"
+        <activity android:name="com.hanchu.lufthansa.RunwayActivity"
                   android:configChanges="keyboardHidden"
-            	  android:screenOrientation="portrait"
+            	  
             	  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
     </application>
 

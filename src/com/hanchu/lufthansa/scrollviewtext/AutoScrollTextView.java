@@ -94,13 +94,14 @@ public class AutoScrollTextView extends TextView {
     protected void onDraw(Canvas canvas) { 
         if (isStarting) { 
             // A-Alpha透明度/R-Read红色/g-Green绿色/b-Blue蓝色 
-            paint.setARGB(255, 200, 200, 200); 
+            //paint.setARGB(255, 200, 200, 200); 
             canvas.drawText(text, temp_tx1 - tx, ty, paint); 
-            tx += 0.4; 
+            tx += 4; 
             // 当文字滚动到屏幕的最左边 
             if (tx >= temp_tx2) { 
                 // 把文字设置到最右边开始 
-                tx = temp_tx1 - viewWidth; 
+                //tx = temp_tx1 - viewWidth;
+                stopScroll();
             } 
             this.invalidate();// 刷新屏幕 
         } 

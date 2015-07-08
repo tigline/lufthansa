@@ -8,11 +8,12 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:adjustViewBounds="false"
-        android:background="@drawable/guide_3"
         android:focusable="true"
-        android:scaleType="centerCrop" />
-	<com.hanchu.lufthansa.scrollviewtext.AutoScrollTextView
-	    android:id="@+id/scrolltext"
+        android:scaleType="centerCrop"
+        android:background="@drawable/guide_3" />
+
+	<com.hanchu.lufthansa.typetextview.TypeTextView
+	    android:id="@+id/typeTx_8"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentTop="true"
@@ -20,6 +21,6 @@
 	    android:layout_marginTop="200dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:textColor="#14b356"
+	    android:textColor="#14b356"
 	    android:textSize="18sp" />
 </RelativeLayout>
