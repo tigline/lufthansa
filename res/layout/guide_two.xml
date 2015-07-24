@@ -10,7 +10,7 @@
         android:adjustViewBounds="false"
         android:focusable="true"
         android:scaleType="centerCrop"
-        android:background="@drawable/guide_3" />
+        android:background="@drawable/guide_1" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,5 +74,13 @@
             android:textColor="#14b356"
             android:textSize="18sp" />
     </LinearLayout>
+    <ImageView
+        android:id="@+id/g1_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/tutorial_next" />
 
 </RelativeLayout>

@@ -23,4 +23,13 @@
         android:text="再后来我毕业了，你去了迪拜，我们交流的时间少了，我也只是偶尔和同学开玩笑说，我有个女神在迪拜。"
         android:textColor="#14b356"
 	    android:textSize="18sp" />
+	
+	<ImageView
+        android:id="@+id/g3_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/tutorial_next" />
 </RelativeLayout>

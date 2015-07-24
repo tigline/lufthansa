@@ -12,6 +12,7 @@ import com.hanchu.lufthansa.typetextview.TypeTextView;
 import com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener;
 import com.hanchu.lufthansa.viewpager.ViewPager;
 
+
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -20,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
 
@@ -53,6 +55,10 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 	private TypeTextView mTypeTextView4 = null;
 	private TypeTextView mTypeTextView5 = null;
 	
+	private ImageView g0_next ,g1_next, g2_next, g3_next,
+						g4_next, g5_next, g6_next, g7_next,
+						g8_next;
+	private Animation animationBottom;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -75,20 +81,37 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		// 初始化引导图片列表
 		views.add(0,inflater.inflate(R.layout.guide_one, null));
 		mTypeTextView = (TypeTextView) views.get(0).findViewById(R.id.typeTx_1);
+		g0_next = (ImageView) views.get(0).findViewById(R.id.g0_next);
 		views.add(1,inflater.inflate(R.layout.guide_two, null));
-		textView2();
+		g1_next = (ImageView) views.get(1).findViewById(R.id.g1_next);
+		textView1();
+		
 		views.add(2,inflater.inflate(R.layout.guide_three, null));
+		g2_next = (ImageView) views.get(2).findViewById(R.id.g2_next);
 		mTypeTextView1 = (TypeTextView) views.get(2).findViewById(R.id.typeTx_2);
+		
 		views.add(3,inflater.inflate(R.layout.guide_four, null));
-		views.add(4,inflater.inflate(R.layout.guide_five, null));		
+		g3_next = (ImageView) views.get(3).findViewById(R.id.g3_next);
+		
+		views.add(4,inflater.inflate(R.layout.guide_five, null));
+		g4_next = (ImageView) views.get(4).findViewById(R.id.g4_next);
+		
 		views.add(5,inflater.inflate(R.layout.guide_six, null));
+		g5_next = (ImageView) views.get(5).findViewById(R.id.g5_next);		
 		scrollText = (AutoScrollTextView) views.get(5).findViewById(R.id.scrolltext);
+		
 		views.add(6,inflater.inflate(R.layout.guide_seven, null));
+		g6_next = (ImageView) views.get(6).findViewById(R.id.g6_next);
 		mTypeTextView2 = (TypeTextView) views.get(6).findViewById(R.id.typeTx_7);
+		
 		views.add(7,inflater.inflate(R.layout.guide_eight, null));
+		g7_next = (ImageView) views.get(7).findViewById(R.id.g7_next);
 		mTypeTextView3 = (TypeTextView) views.get(7).findViewById(R.id.typeTx_8);
+		
 		views.add(8,inflater.inflate(R.layout.guide_nine, null));
+		g8_next = (ImageView) views.get(8).findViewById(R.id.g8_next);
 		mTypeTextView4 = (TypeTextView) views.get(8).findViewById(R.id.typeTx_9);
+		
 		views.add(9,inflater.inflate(R.layout.guide_ten, null));
 		mTypeTextView5 = (TypeTextView) views.get(9).findViewById(R.id.typeTx_10);
 		//mTypeTextView = new TypeTextView(this);
@@ -100,9 +123,10 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		vp.setAdapter(vpAdapter);
 		// 绑定回调
 		vp.setOnPageChangeListener(this);
+		animal(0);
 	}
 
-	private void textView2(){
+	private void textView1(){
 		tvs[0] = (TextView) views.get(1).findViewById(R.id.text_1);
         tvs[1] = (TextView) views.get(1).findViewById(R.id.text_2);
         tvs[2] = (TextView) views.get(1).findViewById(R.id.text_3);
@@ -171,6 +195,7 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 	        handler.postDelayed(r, j * 1500);
 	    }
 	}
+	
 	// 设置动画
 	private void setAnimation(final TextView tv) {
 	    AlphaAnimation aa = new AlphaAnimation(0, 1.0f);
@@ -221,34 +246,8 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 	@Override
 	public void onPageSelected(int position) {
 		// TODO Auto-generated method stub
-		switch (position) {
-		case 0:
-			mTypeTextView.start(TextData.DATA_1);	
-			break;
-		case 1:
-			loadContent();
-			break;
-		case 2:
-			mTypeTextView1.start(TextData.DATA_2);
-		case 4:
-			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
-			scrollText.starScroll();
-			break;
-		case 6:
-			mTypeTextView2.start(TextData.DATA_7);
-			break;
-		case 7:
-			mTypeTextView3.start(TextData.DATA_8);
-			break;
-		case 8:
-			mTypeTextView4.start(TextData.DATA_9);
-			break;
-		case 9:
-			mTypeTextView5.start(TextData.DATA_10);
-			break;
-		default:
-			break;
-		}
+		animal(position);
+		
 	}
 
 	/* (non-Javadoc)
@@ -260,6 +259,49 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		
 	}
 	
-	
+	//动画
+	private void animal(int position) {
+		animationBottom = AnimationUtils.loadAnimation(RunwayActivity.this,
+				R.anim.tutorail_bottom);
+		switch (position) {
+		case 0:
+			mTypeTextView.start(TextData.DATA_1);			
+			g0_next.startAnimation(animationBottom);
+			break;
+		case 1:
+			loadContent();
+			g1_next.startAnimation(animationBottom);
+			break;
+		case 2:
+			mTypeTextView1.start(TextData.DATA_2);
+			g2_next.startAnimation(animationBottom);
+		case 3:
+			g3_next.startAnimation(animationBottom);
+		case 4:
+			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
+			scrollText.starScroll();
+			g4_next.startAnimation(animationBottom);
+			break;
+		case 5:
+			g5_next.startAnimation(animationBottom);
+		case 6:
+			mTypeTextView2.start(TextData.DATA_7);
+			g6_next.startAnimation(animationBottom);
+			break;
+		case 7:
+			mTypeTextView3.start(TextData.DATA_8);
+			g7_next.startAnimation(animationBottom);
+			break;
+		case 8:
+			mTypeTextView4.start(TextData.DATA_9);
+			g8_next.startAnimation(animationBottom);
+			break;
+		case 9:
+			mTypeTextView5.start(TextData.DATA_10);
+			break;
+		default:
+			break;
+		}
+	}
 	
 }

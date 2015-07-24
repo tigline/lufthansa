@@ -23,4 +23,12 @@
         android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是没有成为曾经最熟悉的陌生人。"
         android:textColor="#14b356"
 	    android:textSize="18sp" />
+	<ImageView
+        android:id="@+id/g4_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/tutorial_next" />
 </RelativeLayout>
