@@ -13,17 +13,26 @@ import com.hanchu.lufthansa.viewpager.ViewPager.OnPageChangeListener;
 import com.hanchu.lufthansa.viewpager.ViewPager;
 
 
+
+
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 //import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.view.animation.Animation.AnimationListener;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import android.widget.TextView;
 /**
@@ -58,7 +67,17 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 	private ImageView g0_next ,g1_next, g2_next, g3_next,
 						g4_next, g5_next, g6_next, g7_next,
 						g8_next;
+	private ImageView t3_icon2, t3_icon3, t3_icon4,
+						t3_icon5, t3_icon6 ,t3_plane;
+	private RelativeLayout centerLayout;
+	private AnimationDrawable t3_icon6_animationDrawable;
+	private int fx1, fy1, tx1, ty1;
+	private int fx2, fy2, tx2, ty2;
+	private int fx3, fy3, tx3, ty3;
+	private int fx4, fy4, tx4, ty4;
 	private Animation animationBottom;
+	private Animator runwayScale;
+	private ImageView runwayFly;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -92,6 +111,50 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		
 		views.add(3,inflater.inflate(R.layout.guide_four, null));
 		g3_next = (ImageView) views.get(3).findViewById(R.id.g3_next);
+		runwayFly = (ImageView) views.get(3).findViewById(R.id.runway_fly);
+		t3_icon2 = (ImageView) views.get(3).findViewById(R.id.t3_icon2);
+		t3_icon3 = (ImageView) views.get(3).findViewById(R.id.t3_icon3);
+		t3_icon4 = (ImageView) views.get(3).findViewById(R.id.t3_icon4);
+		t3_icon5 = (ImageView) views.get(3).findViewById(R.id.t3_icon5);
+		t3_icon6 = (ImageView) views.get(3).findViewById(R.id.t3_icon6);
+		t3_plane = (ImageView) views.get(3).findViewById(R.id.t3_plane);
+		
+		centerLayout = (RelativeLayout) views.get(3).findViewById(R.id.center_layout_3);
+		views.get(3).getViewTreeObserver().addOnGlobalLayoutListener(
+				new OnGlobalLayoutListener() {
+
+					@Override
+					public void onGlobalLayout() {
+						// TODO Auto-generated method stub
+						int h1 = centerLayout.getTop();
+						int h2 = centerLayout.getBottom();
+						DensityUtil densityUtil = new DensityUtil(
+								RunwayActivity.this);
+						int w = densityUtil.getScreenWidth();
+
+						fx1 = t3_icon2.getTop() + t3_icon2.getHeight();
+						fy1 = -t3_icon2.getTop() - t3_icon2.getHeight();
+						tx1 = -t3_icon2.getWidth() - t3_icon2.getLeft();
+						ty1 = t3_icon2.getTop() + t3_icon2.getLeft()
+								+ t3_icon2.getWidth();
+
+						fx2 = t3_icon3.getTop() + t3_icon3.getHeight();
+						fy2 = -t3_icon3.getTop() - t3_icon3.getHeight();
+						tx2 = -t3_icon3.getWidth() - t3_icon3.getLeft();
+						ty2 = t3_icon3.getTop() + t3_icon3.getLeft()
+								+ t3_icon3.getWidth();
+
+						fx3 = w - t3_icon4.getLeft();
+						fy3 = -(w - t3_icon4.getLeft());
+						tx3 = -(h2 - h1 - t3_icon4.getTop());
+						ty3 = h2 - h1 - t3_icon4.getTop();
+
+						fx4 = w - t3_icon5.getLeft();
+						fy4 = -(w - t3_icon5.getLeft());
+						tx4 = -(h2 - h1 - t3_icon5.getTop());
+						ty4 = h2 - h1 - t3_icon5.getTop();
+					}
+				});
 		
 		views.add(4,inflater.inflate(R.layout.guide_five, null));
 		g4_next = (ImageView) views.get(4).findViewById(R.id.g4_next);
@@ -276,7 +339,68 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 			mTypeTextView1.start(TextData.DATA_2);
 			g2_next.startAnimation(animationBottom);
 		case 3:
+			LinearInterpolator lin = new LinearInterpolator();
+			
+			
+			//t3_icon6.setImageResource(R.drawable.t3_frame_animation); //火箭
+			//t3_icon6_animationDrawable = (AnimationDrawable) t3_icon6
+			//		.getDrawable();
+
+			final TranslateAnimation transAnimation2 = new TranslateAnimation(
+					fx1, tx1, fy1, ty1);
+			transAnimation2.setDuration(800);
+			transAnimation2.setRepeatCount(Animation.INFINITE);
+			transAnimation2.setRepeatMode(Animation.RESTART);
+			lin = new LinearInterpolator();
+			transAnimation2.setInterpolator(lin);
+
+			final TranslateAnimation transAnimation3 = new TranslateAnimation(
+					fx2, tx2, fy2, ty2);
+			transAnimation3.setDuration(1200);
+			transAnimation3.setRepeatCount(Animation.INFINITE);
+			transAnimation3.setRepeatMode(Animation.RESTART);
+			transAnimation3.setInterpolator(lin);
+
+			final TranslateAnimation transAnimation4 = new TranslateAnimation(
+					fx3, tx3, fy3, ty3);
+			transAnimation4.setDuration(1200);
+			transAnimation4.setRepeatCount(Animation.INFINITE);
+			transAnimation4.setRepeatMode(Animation.RESTART);
+			transAnimation4.setInterpolator(lin);
+
+			final TranslateAnimation transAnimation5 = new TranslateAnimation(
+					fx4, tx4, fy4, ty4);
+			transAnimation5.setDuration(800);
+			transAnimation5.setRepeatCount(Animation.INFINITE);
+			transAnimation5.setRepeatMode(Animation.RESTART);
+			transAnimation5.setInterpolator(lin);
+
+			// 延迟0.5秒
+			new Handler() {
+				public void handleMessage(android.os.Message msg) {
+					if (msg.what == 1) {
+						
+						t3_plane.setVisibility(View.VISIBLE);
+						t3_icon2.setVisibility(View.VISIBLE);
+						t3_icon3.setVisibility(View.VISIBLE);
+						t3_icon4.setVisibility(View.VISIBLE);
+						t3_icon5.setVisibility(View.VISIBLE);
+						
+
+						t3_icon2.startAnimation(transAnimation2);
+						t3_icon3.startAnimation(transAnimation3);
+						t3_icon4.startAnimation(transAnimation4);
+						t3_icon5.startAnimation(transAnimation5);
+						//t3_icon6_animationDrawable.start();
+
+					}
+				};
+			}.sendEmptyMessageDelayed(1, 1000);
+			
 			g3_next.startAnimation(animationBottom);
+			runwayScale = AnimatorInflater.loadAnimator(RunwayActivity.this, R.animator.tutorail_scalate);  
+			runwayScale.setTarget(runwayFly);  
+			runwayScale.start();
 		case 4:
 			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
 			scrollText.starScroll();
