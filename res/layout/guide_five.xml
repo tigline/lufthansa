@@ -8,7 +8,7 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:adjustViewBounds="false"
-        android:background="@drawable/guide_3"
+        android:background="@drawable/guidebg_5"
         android:focusable="true"
         android:scaleType="centerCrop" />
 	<TextView 
@@ -17,10 +17,10 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentTop="true"
 	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="200dp"
+	    android:layout_marginTop="380dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是没有成为曾经最熟悉的陌生人。"
+        android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是，还没没有成为最熟悉的陌生人。"
         android:textColor="#14b356"
 	    android:textSize="18sp" />
 	<ImageView

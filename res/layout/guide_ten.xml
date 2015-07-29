@@ -4,13 +4,13 @@
     android:layout_height="match_parent" >
 
     <ImageView
+        android:id="@+id/runway_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:adjustViewBounds="false"
         android:focusable="true"
-        android:scaleType="centerCrop"
-        android:background="@drawable/guide_3" />
+        android:scaleType="centerCrop"/>
 
 	<com.hanchu.lufthansa.typetextview.TypeTextView
 	    android:id="@+id/typeTx_10"
@@ -18,18 +18,40 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentTop="true"
 	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="200dp"
+	    android:layout_marginTop="400dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
 	    android:textColor="#14b356"
 	    android:textSize="18sp" />
-
+	<Button 
+	    android:id="@+id/iv_start_weibo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="68dp"
+        android:text="安全着陆"
+        android:textSize="24sp"
+        android:textColor="#1462C8"/>
+	<Button
+	    android:id="@+id/negative"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_marginRight="30dp"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentBottom="true"
+        android:layout_marginBottom="68dp"
+        android:text="选择坠机" 
+        android:textSize="24sp"
+        android:textColor="#1462C8"/>
+	<!--  
     <ImageView
         android:id="@+id/iv_start_weibo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_alignRight="@+id/negative"
         android:layout_marginBottom="128dp"
         android:background="@drawable/whats_new_start_btn"
         android:focusable="true" />
@@ -43,5 +65,8 @@
         android:layout_marginBottom="68dp"
         android:background="@drawable/whats_new_start_btn"
         android:focusable="true" />
+	-->
 
+
+	
 </RelativeLayout>

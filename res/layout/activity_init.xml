@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
-        android:background="@drawable/launch_img"
+        android:background="@drawable/lufthansa"
         android:scaleType="centerCrop" />
 
 </RelativeLayout>

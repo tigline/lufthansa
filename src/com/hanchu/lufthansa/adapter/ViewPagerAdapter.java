@@ -13,11 +13,13 @@ import android.os.Parcelable;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.hanchu.lufthansa.MainActivity;
+import com.hanchu.lufthansa.NegativeActivity;
 import com.hanchu.lufthansa.R;
 import com.hanchu.lufthansa.viewpager.PagerAdapter;
 
@@ -72,7 +74,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 	public Object instantiateItem(ViewGroup container, int arg1) {
 		container.addView(views.get(arg1), 0);
 		if (arg1 == views.size() - 1) {
-			ImageView mStartWeiboImageButton = (ImageView) container
+			Button mStartWeiboImageButton = (Button) container
 					.findViewById(R.id.iv_start_weibo);
 			mStartWeiboImageButton.setOnClickListener(new OnClickListener() {
 
@@ -84,14 +86,14 @@ public class ViewPagerAdapter extends PagerAdapter {
 				}
 			});
 			
-			ImageView negativeButton = (ImageView) container
+			Button negativeButton = (Button) container
 					.findViewById(R.id.negative);
 			negativeButton.setOnClickListener(new OnClickListener() {
 
 				@Override
 				public void onClick(View v) {
 					// 设置已经引导
-					if(count < 3){
+					if(count < 2){
 						count ++;
 						Toast.makeText(activity, "are you sure ?", Toast.LENGTH_SHORT).show();
 					}else{
@@ -106,12 +108,12 @@ public class ViewPagerAdapter extends PagerAdapter {
 	private void goStart() {
 		// 跳转
 		Intent intent = new Intent(Intent.ACTION_DIAL);
-		intent.setData(Uri.parse("tel:15079221871"));
+		intent.setData(Uri.parse("tel:18665819550"));
 		activity.startActivity(intent);
 		activity.finish();
 	}
 	private void goHome(){
-		Intent intent = new Intent(activity, MainActivity.class);
+		Intent intent = new Intent(activity, NegativeActivity.class);
 		activity.startActivity(intent);
 		activity.finish();
 	}

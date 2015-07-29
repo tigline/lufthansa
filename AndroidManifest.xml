@@ -25,10 +25,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hanchu.lufthansa.MainActivity"></activity>
+        <activity android:name="com.hanchu.lufthansa.MainActivity"
+            	  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
         <activity android:name="com.hanchu.lufthansa.RunwayActivity"
                   android:configChanges="keyboardHidden"
             	  
+            	  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
+        <activity android:name="com.hanchu.lufthansa.NegativeActivity"
             	  android:theme="@android:style/Theme.NoTitleBar.Fullscreen"></activity>
     </application>
 

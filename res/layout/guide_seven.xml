@@ -10,7 +10,7 @@
         android:adjustViewBounds="false"
         android:focusable="true"
         android:scaleType="centerCrop"
-        android:background="@drawable/guide_3" />
+        android:background="@drawable/guidebg_7" />
 
 	<com.hanchu.lufthansa.typetextview.TypeTextView
 	    android:id="@+id/typeTx_7"
@@ -18,7 +18,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_alignParentTop="true"
 	    android:layout_centerHorizontal="true"
-	    android:layout_marginTop="200dp"
+	    android:layout_marginTop="400dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
 	    android:textColor="#14b356"

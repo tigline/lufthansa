@@ -8,7 +8,8 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:adjustViewBounds="false"
-        android:background="@drawable/guide_3"
+        android:background="@drawable/nagetive"
         android:focusable="true"
         android:scaleType="centerCrop" />
+	
 </RelativeLayout>

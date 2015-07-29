@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#fff6f5" >
+    android:background="@drawable/guidebg_1" >
     <!-- 
     <ImageView 
         android:layout_width="match_parent"
@@ -11,17 +11,6 @@
         android:layout_gravity="center_vertical"
         android:src="@drawable/guide_one"/>
 	 -->
-
-    <com.hanchu.lufthansa.typetextview.TypeTextView
-        android:id="@+id/typeTx_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="190dp"
-        android:textColor="#14b356"
-        android:textSize="18sp" />
 
     <ImageView
         android:id="@+id/g0_next"
@@ -31,5 +20,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:src="@drawable/tutorial_next" />
+
+    <com.hanchu.lufthansa.typetextview.TypeTextView
+        android:id="@+id/typeTx_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="380dp"
+        android:textColor="#14b356"
+        android:textSize="18sp" />
 
 </RelativeLayout>

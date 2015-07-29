@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:drawable="@drawable/guidebg_10_0"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_1"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_2"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_3"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_4"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_5"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_6"
+        android:duration="140"/>
+    <item
+        android:drawable="@drawable/guidebg_10_7"
+        android:duration="140"/>
+
+</animation-list>

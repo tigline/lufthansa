@@ -68,9 +68,9 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 						g4_next, g5_next, g6_next, g7_next,
 						g8_next;
 	private ImageView t3_icon2, t3_icon3, t3_icon4,
-						t3_icon5, t3_icon6 ,t3_plane;
+						t3_icon5, t3_plane ,runwayFrame;
 	private RelativeLayout centerLayout;
-	private AnimationDrawable t3_icon6_animationDrawable;
+	private AnimationDrawable g10_animationDrawable;
 	private int fx1, fy1, tx1, ty1;
 	private int fx2, fy2, tx2, ty2;
 	private int fx3, fy3, tx3, ty3;
@@ -116,7 +116,6 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		t3_icon3 = (ImageView) views.get(3).findViewById(R.id.t3_icon3);
 		t3_icon4 = (ImageView) views.get(3).findViewById(R.id.t3_icon4);
 		t3_icon5 = (ImageView) views.get(3).findViewById(R.id.t3_icon5);
-		t3_icon6 = (ImageView) views.get(3).findViewById(R.id.t3_icon6);
 		t3_plane = (ImageView) views.get(3).findViewById(R.id.t3_plane);
 		
 		centerLayout = (RelativeLayout) views.get(3).findViewById(R.id.center_layout_3);
@@ -177,6 +176,7 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		
 		views.add(9,inflater.inflate(R.layout.guide_ten, null));
 		mTypeTextView5 = (TypeTextView) views.get(9).findViewById(R.id.typeTx_10);
+		runwayFrame = (ImageView) views.get(9).findViewById(R.id.runway_frame);
 		//mTypeTextView = new TypeTextView(this);
 				
 		// 初始化Adapter
@@ -197,51 +197,7 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
         tvs[4] = (TextView) views.get(1).findViewById(R.id.text_5);
         tvs[5] = (TextView) views.get(1).findViewById(R.id.text_6);
 	}
-	/*
-	private void initDots() {
-		LinearLayout ll = (LinearLayout) findViewById(R.id.ll);
-
-		dots = new ImageView[views.size()];
-
-		// 循环取得小点图片
-		for (int i = 0; i < views.size(); i++) {
-			dots[i] = (ImageView) ll.getChildAt(i);
-			dots[i].setEnabled(true);// 都设为灰色
-		}
-		currentIndex = 0;
-		dots[currentIndex].setEnabled(false);// 设置为白色，即选中状态
-				
-	}
 	
-	private void setCurrentDot(int position) {
-		if (position < 0 || position > views.size() - 1
-				|| currentIndex == position) {
-			return;
-		}
-
-		dots[position].setEnabled(false);
-		dots[currentIndex].setEnabled(true);
-
-		currentIndex = position;
-		switch (currentIndex) {
-		case 0:
-			mTypeTextView.start(DATA_1);	
-			break;
-		case 1:
-			loadContent();
-			break;
-		case 2:
-			mTypeTextView1.start(DATA_2);
-		case 4:
-			scrollText.initScrollTextView(this.getWindowManager(), 
-					DATA_5); 
-			scrollText.starScroll();
-			break;
-		default:
-			break;
-		}
-	}
-	*/
 
 		
 	private void loadContent() {
@@ -338,6 +294,7 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		case 2:
 			mTypeTextView1.start(TextData.DATA_2);
 			g2_next.startAnimation(animationBottom);
+			break;
 		case 3:
 			LinearInterpolator lin = new LinearInterpolator();
 			
@@ -401,13 +358,16 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 			runwayScale = AnimatorInflater.loadAnimator(RunwayActivity.this, R.animator.tutorail_scalate);  
 			runwayScale.setTarget(runwayFly);  
 			runwayScale.start();
+			break;
 		case 4:
-			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
-			scrollText.starScroll();
+			
 			g4_next.startAnimation(animationBottom);
 			break;
 		case 5:
+			scrollText.initScrollTextView(this.getWindowManager(), TextData.DATA_5); 
+			scrollText.starScroll();
 			g5_next.startAnimation(animationBottom);
+			break;
 		case 6:
 			mTypeTextView2.start(TextData.DATA_7);
 			g6_next.startAnimation(animationBottom);
@@ -421,6 +381,10 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 			g8_next.startAnimation(animationBottom);
 			break;
 		case 9:
+			runwayFrame.setImageResource(R.drawable.g10_frame_animation); 
+			g10_animationDrawable = (AnimationDrawable) runwayFrame
+					.getDrawable();
+			g10_animationDrawable.start();
 			mTypeTextView5.start(TextData.DATA_10);
 			break;
 		default:
