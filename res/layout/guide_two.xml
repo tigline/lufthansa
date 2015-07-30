@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="对这么一个特殊嗜好的同学"
+            android:text="对这么一个特殊爱好的同学"
             android:textColor="#14b356"
             android:textSize="18sp" />
 

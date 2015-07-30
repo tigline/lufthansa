@@ -20,7 +20,8 @@
 	    android:layout_marginTop="380dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是，还没没有成为最熟悉的陌生人。"
+
+  		android:text="呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒"      
         android:textColor="#14b356"
 	    android:textSize="18sp" />
 	<ImageView
@@ -31,4 +32,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
         android:src="@drawable/tutorial_next" />
+	  <!--  android:text="不知不觉我已毕业整两年了，我们也认识三年了，还好的是，还没没有成为最熟悉的陌生人。" -->
 </RelativeLayout>

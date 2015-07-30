@@ -94,10 +94,11 @@
 	    android:layout_marginTop="490dp"
 	    android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:text="再后来我毕业了，你去了迪拜，我们交流的时间少了，我也只是偶尔和同学开玩笑说，我有个女神在迪拜。"
+        android:text="呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒呵呵哒"
         android:textColor="#C84D19"
 	    android:textSize="18sp" />
-	
+
+	<!-- android:text="再后来我毕业了，你去了迪拜，我们交流的时间少了，我也只是偶尔和同学开玩笑说，我有个女神在迪拜。" -->	
 	<ImageView
         android:id="@+id/g3_next"
         android:layout_width="wrap_content"
