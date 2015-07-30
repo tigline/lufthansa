@@ -1,18 +1,23 @@
 package com.hanchu.lufthansa.adapter;
 
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.net.Uri;
+import android.os.Handler;
 import android.os.Parcelable;
 
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -73,8 +78,8 @@ public class ViewPagerAdapter extends PagerAdapter {
 	@Override
 	public Object instantiateItem(ViewGroup container, int arg1) {
 		container.addView(views.get(arg1), 0);
-		if (arg1 == views.size() - 1) {
-			Button mStartWeiboImageButton = (Button) container
+		if (arg1 == views.size() - 1) {				
+			final ImageView mStartWeiboImageButton = (ImageView) container
 					.findViewById(R.id.iv_start_weibo);
 			mStartWeiboImageButton.setOnClickListener(new OnClickListener() {
 
@@ -86,7 +91,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 				}
 			});
 			
-			Button negativeButton = (Button) container
+			final ImageView negativeButton = (ImageView) container
 					.findViewById(R.id.negative);
 			negativeButton.setOnClickListener(new OnClickListener() {
 
@@ -101,6 +106,18 @@ public class ViewPagerAdapter extends PagerAdapter {
 					}						
 				}
 			});
+						    
+    	  	float curTranslationl = mStartWeiboImageButton.getTranslationX(); 
+			float curTranslationr = negativeButton.getTranslationX();
+
+	    	ObjectAnimator animatorleft = ObjectAnimator.ofFloat(mStartWeiboImageButton, "translationX", -1000f,curTranslationl);  
+			animatorleft.setDuration(20000);  
+			animatorleft.start(); 
+			
+			ObjectAnimator animatorright = ObjectAnimator.ofFloat(negativeButton, "translationX", curTranslationr + 1000f,curTranslationr);  
+			animatorright.setDuration(20000);												 
+			animatorright.start();   
+												
 		}
 		return views.get(arg1);
 	}

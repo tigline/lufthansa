@@ -177,6 +177,7 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 		views.add(9,inflater.inflate(R.layout.guide_ten, null));
 		mTypeTextView5 = (TypeTextView) views.get(9).findViewById(R.id.typeTx_10);
 		runwayFrame = (ImageView) views.get(9).findViewById(R.id.runway_frame);
+		
 		//mTypeTextView = new TypeTextView(this);
 				
 		// 初始化Adapter
@@ -386,6 +387,8 @@ public class RunwayActivity extends FragmentActivity implements OnPageChangeList
 					.getDrawable();
 			g10_animationDrawable.start();
 			mTypeTextView5.start(TextData.DATA_10);
+			
+			
 			break;
 		default:
 			break;
